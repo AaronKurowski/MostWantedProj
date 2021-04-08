@@ -5,6 +5,9 @@
     <title>devCodeCamp &middot; Most Wanted</title>
   </head>
   <body>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
     <form id="nameForm">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" value="Joy"><br>
@@ -14,15 +17,28 @@
         <input type="button" onclick="searchByName()" value="Submit">
     </form>
 
-    <br><br>
+    <p id="output">
+      
+    </p>
 
+
+
+    <br><br>
+    <!--
     <form id="genderForm">
       <label for="gender">Gender:</label><br>
       <input type="text" id="gender" name="gender" value="male/female"><br><br>
       <input type="button" onclick="searchByGender()" value="Submit">
     </form>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <br><br>
+
+    <form id="birthdayForm">
+      <label for="Birthday">Birthday</label><br>
+      <input type="text" id="birthday" name="birthday" value="MM/DD/YYYY"><br><br>
+      <input type="button" onclick="searchByBirth()" value="Submit">
+    </form>
+    --->
+    
   </body>
 </html>

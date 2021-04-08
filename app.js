@@ -12,14 +12,17 @@ function searchByName(){
         }
         return false;
     });
-    
+
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
-        console.log(filteredPeople);
+        document.getElementById(
+            "output"
+        ).innerHTML = `${firstNameInput}`;
     }else{
         console.log('Sorry, looks like there is no one with that name.');
     }
 }
+
 
 function searchByGender(){
     let genderInput = document.forms['genderForm']['gender'].value;
@@ -35,6 +38,22 @@ function searchByGender(){
         console.log(filteredGenders);
     }else{
         console.log("No one with that gender.");
+    }
+}
+
+function searchByBirth() {
+    let birthdayInput = document.forms['birthdayForm']['birthday'].value;
+
+    let filteredBirthdays = people.filter(function(person){
+        if(person.dob === birthdayInput){
+            return true;
+        }
+        return false;
+    });
+    if(filteredBirthdays.length > 0){
+        console.log(filteredBirthdays);
+    }else{
+        console.log("No one with that date of birth.");
     }
 }
 
