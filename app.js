@@ -41,6 +41,7 @@ function searchByGender(){
     }
 }
 
+<<<<<<< HEAD
 function searchByBirth() {
     let birthdayInput = document.forms['birthdayForm']['birthday'].value;
 
@@ -56,4 +57,7 @@ function searchByBirth() {
         console.log("No one with that date of birth.");
     }
 }
+=======
+
+>>>>>>> 2ed7a801169ea32626d79eb365e21508edbab1a3
 
