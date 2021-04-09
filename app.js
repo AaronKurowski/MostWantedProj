@@ -51,7 +51,7 @@ function searchByBirth() {
         return false;
     });
     if(filteredBirthdays.length > 0){
-        document.getElementById("birthdayOutput").innerHTML = `${birthdayINput}`
+        document.getElementById("birthdayOutput").innerHTML = `${birthdayInput}`
     }else{
         console.log("No one with that birthday.")
     }
