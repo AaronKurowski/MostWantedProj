@@ -41,7 +41,6 @@ function searchByGender(){
     }
 }
 
-<<<<<<< HEAD
 function searchByBirth() {
     let birthdayInput = document.forms['birthdayForm']['birthday'].value;
 
@@ -57,7 +56,18 @@ function searchByBirth() {
         console.log("No one with that date of birth.");
     }
 }
-=======
 
->>>>>>> 2ed7a801169ea32626d79eb365e21508edbab1a3
-
+function searchByHeight() {
+    let heightInput = document.forms['heightForm']['height'].value;
+    let filteredHeight = people.filter(function(person) {
+        if(person.height === heightInput) {
+            return true;
+        }
+        return false;
+    });
+    if(filteredHeight > 0) {
+        document.getElementById("height").innerHTML = heightInput;
+    } else {
+        document.write("No match");
+    }
+}
