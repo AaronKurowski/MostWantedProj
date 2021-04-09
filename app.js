@@ -59,15 +59,10 @@ function searchByBirth() {
 
 function searchByHeight() {
     let heightInput = document.forms['heightForm']['height'].value;
-    let filteredHeight = people.filter(function(person) {
-        if(person.height === heightInput) {
-            return true;
+    for(let i = 0; i < people.length; i++) {
+        if(heightInput == people[i].height) {
+            console.log(people[i].firstName, people[i].lastName, people[i].height);
         }
-        return false;
-    });
-    if(filteredHeight > 0) {
-        document.getElementById("height").innerHTML = heightInput;
-    } else {
-        document.write("No match");
     }
 }
+
