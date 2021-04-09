@@ -34,11 +34,13 @@
       <input type="button" onclick="searchByBirth()" value="Submit">
     </form>
     --->
-    <form action="" id="heightForm">
+    <form id="heightForm">
       <label for="height">Height</label>
       <input type="number" min="55" id="height" name="height">
-      <input type="submit" value="search" onclick="searchByHeight()">
+      <!----Use type="button" instead of "submit" to permanently display data -->
+      <input type="button" value="search" onclick="searchByHeight()">
     </form>
+    <p id="height-output"></p>
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>

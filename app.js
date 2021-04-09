@@ -62,7 +62,11 @@ function searchByHeight() {
     for(let i = 0; i < people.length; i++) {
         if(heightInput == people[i].height) {
             console.log(people[i].firstName, people[i].lastName, people[i].height);
+            document.getElementById("height-output").innerHTML += `${people[i].firstName} ${people[i].lastName} ${people[i].height} `;
+        } else {
+            console.log("No match for this height found");
         }
     }
 }
+
 
