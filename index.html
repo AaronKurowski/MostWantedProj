@@ -36,11 +36,20 @@
     --->
     <form id="heightForm">
       <label for="height">Height</label>
-      <input type="number" min="55" id="height" name="height">
+      <input type="number" id="height" name="height">
       <!----Use type="button" instead of "submit" to permanently display data -->
       <input type="button" value="search" onclick="searchByHeight()">
     </form>
-    <p id="height-output"></p>
+    <p id="heightOutput"></p>
+
+    <table>
+      <thead>
+        <tr id="thead"></tr>
+      </thead>
+      <tr id="tableRow">
+
+      </tr>
+    </table>
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>
