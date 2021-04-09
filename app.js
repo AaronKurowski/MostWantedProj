@@ -63,7 +63,7 @@ function searchByBirth() {
 
 function searchByHeight() {
     let table = document.querySelector('table');
-    let heightInput = document.forms['heightForm']['height'].value;
+    let heightInput = document.forms['mainForm']['height'].value;
     for(let i = 0; i < people.length; i++) {
         if(heightInput == people[i].height) {
             //console.log(people[i]);

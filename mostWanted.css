@@ -1,3 +1,28 @@
-input, label {
-    display:inline;
+#mainForm {
+    margin-top: 20px;
+    width: 200px;
+    display:flex;
+    flex-direction: column;
 }
+
+input {
+    margin-bottom: 14px;
+}
+
+/*table && td && th*/
+table, td, th {
+    border: 1px solid black;
+}
+
+table th, td {
+    padding: 3px;
+}
+
+table{
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+
