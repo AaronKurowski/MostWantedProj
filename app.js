@@ -18,6 +18,9 @@ function searchByName(){
         document.getElementById(
             "fNameOutput"
         ).innerHTML = `${firstNameInput}`;
+        document.getElementById(
+            "lNameOutput"
+        ).innerHTML = `${lastNameInput}`;
         console.log(filteredPeople);
     }else{
         console.log('Sorry, looks like there is no one with that name.');
@@ -35,7 +38,8 @@ function searchByGender(){
     });
 
     if(filteredGenders.length > 0){
-        document.getElementById("genderOutput").innerHTML = `${genderInput}`;
+        console.log(filteredGenders);
+        // document.getElementById("genderOutput").innerHTML = `${genderInput}`;
     }else{
         console.log("No one with that gender.");
     }
@@ -74,10 +78,10 @@ function searchByHeight() {
     }
 }
 
-let thData = document.createElement("th");
-let tableHeaders = ['Id', 'First Name', 'Last Name', 'Gender', 'DOB', 'Height', 'Weight', 'Eye Color', 'Occupation', 'Parents', 'Current Spouse'];
-for(let i = 0; i < tableHeaders.length; i++) {
-    //use the += in a for loop to show value + the next value of the array
-    thData.innerHTML = " " + tableHeaders[i];
-    document.getElementById("thead").appendChild(thData);
-}
+// let thData = document.createElement("th");
+// let tableHeaders = ['Id', 'First Name', 'Last Name', 'Gender', 'DOB', 'Height', 'Weight', 'Eye Color', 'Occupation', 'Parents', 'Current Spouse'];
+// for(let i = 0; i < tableHeaders.length; i++) {
+//     //use the += in a for loop to show value + the next value of the array
+//     thData.innerHTML = " " + tableHeaders[i];
+//     document.getElementById("thead").appendChild(thData);
+// }
