@@ -26,3 +26,16 @@ table{
 
 
 
+input, label {
+    display:inline;
+}
+
+th {
+    column-span: 11;
+    border: 1px solid black;
+
+}
+
+table, td {
+    border: 1px solid black;
+}
