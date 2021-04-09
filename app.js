@@ -18,6 +18,9 @@ function searchByName(){
         document.getElementById(
             "fNameOutput"
         ).innerHTML = `${firstNameInput}`;
+        document.getElementById(
+            "lNameOutput"
+        ).innerHTML = `${lastNameInput}`;
         console.log(filteredPeople);
     }else{
         console.log('Sorry, looks like there is no one with that name.');
@@ -35,7 +38,8 @@ function searchByGender(){
     });
 
     if(filteredGenders.length > 0){
-        document.getElementById("genderOutput").innerHTML = `${genderInput}`;
+        console.log(filteredGenders);
+        // document.getElementById("genderOutput").innerHTML = `${genderInput}`;
     }else{
         console.log("No one with that gender.");
     }
