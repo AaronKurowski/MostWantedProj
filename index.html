@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>devCodeCamp &middot; Most Wanted</title>
-    <link rel="stylesheet" href="/weekTwo/dayNine/DOM/MostWantedProj/mostWanted.css">
+    <!--<link rel="stylesheet" href="/weekTwo/dayNine/DOM/MostWantedProj/mostWanted.css">-->
   </head>
   <body>
     <script src="data.js"></script>
@@ -18,9 +18,45 @@
         <input type="button" onclick="searchByName()" value="Submit">
     </form>
 
-    <p id="output">
+    <form id="genderForm">
+      <label for="gender"></label><br>
+      <input type="text" id="gender" name="gender" value="male/female"><br><br>
+      <input type="button" onclick="searchByGender" value="Submit">
+    </form>
+
+    <p>
       
     </p>
+
+
+    <table style="width: 100%">
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Eye Color</th>
+          <th>Occupation</th>
+          <th>Parents</th>
+          <th>Current Spouse</th>
+        </tr>
+        <tr>
+          <td id="idOutput"></td>
+          <td id="fNameOutput"></td>
+          <td id="lNameOutput"></td>
+          <td id="genderOutput"></td>
+          <td id="birthdayOutput"></td>
+          <td id="heightOutput"></td>
+          <td id="weightOutput"></td>
+          <td id="eyeColorOutput"></td>
+          <td id="occupationOutput"></td>
+          <td id="parentOutput"></td>
+          <td id="currentSpouseOutput"></td>
+        </tr>
+    </table>
 
 
 
@@ -31,7 +67,6 @@
       <input type="text" id="gender" name="gender" value="male/female"><br><br>
       <input type="button" onclick="searchByGender()" value="Submit">
     </form>
-<<<<<<< HEAD
 
     <br><br>
 
@@ -42,32 +77,5 @@
     </form>
     --->
     
-=======
-    
-    <!--<table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Gender</th>
-          <th>DOB</th>
-          <th>Height</th>
-          <th>Weight</th>
-          <th>Eye Color</th>
-          <th>Occupation</th>
-          <th>Parents</th>
-          <th>Current Spouse</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>-->
-    <script src="data.js"></script>
-    <script src="app.js"></script>
->>>>>>> 2ed7a801169ea32626d79eb365e21508edbab1a3
   </body>
 </html>

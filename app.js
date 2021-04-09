@@ -16,13 +16,12 @@ function searchByName(){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
         document.getElementById(
-            "output"
+            "fNameOutput"
         ).innerHTML = `${firstNameInput}`;
     }else{
         console.log('Sorry, looks like there is no one with that name.');
     }
 }
-
 
 function searchByGender(){
     let genderInput = document.forms['genderForm']['gender'].value;
@@ -35,29 +34,25 @@ function searchByGender(){
     });
 
     if(filteredGenders.length > 0){
-        console.log(filteredGenders);
+        document.getElementById("genderOutput").innerHTML = `${genderInput}`;
     }else{
         console.log("No one with that gender.");
     }
 }
 
-<<<<<<< HEAD
-function searchByBirth() {
-    let birthdayInput = document.forms['birthdayForm']['birthday'].value;
+function searchByBirth(){
+    let birthdayInput = document.forms['birthForm']['birthday'].value;
 
-    let filteredBirthdays = people.filter(function(person){
+    let filteredBirthdays = people.filter(function (person) {
         if(person.dob === birthdayInput){
             return true;
         }
         return false;
     });
     if(filteredBirthdays.length > 0){
-        console.log(filteredBirthdays);
+        document.getElementById("birthdayOutput").innerHTML = `${birthdayINput}`
     }else{
-        console.log("No one with that date of birth.");
+        console.log("No one with that birthday.")
     }
 }
-=======
-
->>>>>>> 2ed7a801169ea32626d79eb365e21508edbab1a3
 
