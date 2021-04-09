@@ -10,7 +10,7 @@ const people = [
 		"weight": 175,
 		"eyeColor": "brown",
 		"occupation": "programmer",
-		"parents": [],
+		"parents": [], 
 		"currentSpouse": 401222887
 	},
 	{
@@ -287,3 +287,5 @@ const people = [
 		"currentSpouse": null
 	}
 ];
+
+
