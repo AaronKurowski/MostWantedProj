@@ -1,5 +1,5 @@
 // You may modify this for testing purposes.
-const people = [
+let people = [
 	{
 		"id": 272822514,
 		"firstName": "Billy",
