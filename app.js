@@ -58,26 +58,25 @@ function searchByBirth() {
 }
 
 function searchByHeight() {
-    let tableData = document.createElement('td');
-    let tableRow = document.getElementById("tableRow");
     let heightInput = document.forms['heightForm']['height'].value;
     for(let i = 0; i < people.length; i++) {
         console.log(people[i]);
         if(heightInput == people[i].height) {
             console.log(people[i].firstName, people[i].lastName, people[i].height);
-            tableData.innerHTML += `${people[i].id} ${people[i].firstName} ${people[i].lastName} ${people[i].gender} ${people[i].dob} ${people[i].height} ${people[i].weight} ${people[i].eyeColor} ${people[i].occupation} ${people[i].parents} ${people[i].currentSpouse}`;
-            //table.appendChild(tableRow);
-            tableRow.appendChild(tableData);
+            document.getElementById("idOutput").innerHTML = people[i].id;
+            document.getElementById("fNameOutput").innerHTML = people[i].firstName;
+            document.getElementById("lNameOutput").innerHTML = people[i].lastName;
+            document.getElementById("genderOutput").innerHTML = people[i].gender;
+            document.getElementById("birthdayOutput").innerHTML = people[i].dob;
+            document.getElementById("heightOutput").innerHTML = people[i].height;
+            document.getElementById("weightOutput").innerHTML = people[i].weight;
+            document.getElementById("eyeColorOutput").innerHTML = people[i].eyeColor;
+            document.getElementById("occupationOutput").innerHTML = people[i].occupation;
+            document.getElementById("parentOutput").innerHTML = people[i].parents;
+            document.getElementById("currentSpouseOutput").innerHTML = people[i].currentSpouse;
         } else {
             console.log("No match for this height found");
         }
     }
 }
 
-let thData = document.createElement("th");
-let tableHeaders = ['Id', 'First Name', 'Last Name', 'Gender', 'DOB', 'Height', 'Weight', 'Eye Color', 'Occupation', 'Parents', 'Current Spouse'];
-for(let i = 0; i < tableHeaders.length; i++) {
-    //use the += in a for loop to show value + the next value of the array
-    thData.innerHTML = " " + tableHeaders[i];
-    document.getElementById("thead").appendChild(thData);
-}
