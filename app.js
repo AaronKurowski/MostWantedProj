@@ -58,24 +58,12 @@ function searchByBirth() {
 }
 
 function searchByHeight() {
+    let table = document.querySelector('table');
     let heightInput = document.forms['heightForm']['height'].value;
     for(let i = 0; i < people.length; i++) {
-        console.log(people[i]);
         if(heightInput == people[i].height) {
-            console.log(people[i].firstName, people[i].lastName, people[i].height);
-            document.getElementById("idOutput").innerHTML = people[i].id;
-            document.getElementById("fNameOutput").innerHTML = people[i].firstName;
-            document.getElementById("lNameOutput").innerHTML = people[i].lastName;
-            document.getElementById("genderOutput").innerHTML = people[i].gender;
-            document.getElementById("birthdayOutput").innerHTML = people[i].dob;
-            document.getElementById("heightOutput").innerHTML = people[i].height;
-            document.getElementById("weightOutput").innerHTML = people[i].weight;
-            document.getElementById("eyeColorOutput").innerHTML = people[i].eyeColor;
-            document.getElementById("occupationOutput").innerHTML = people[i].occupation;
-            document.getElementById("parentOutput").innerHTML = people[i].parents;
-            document.getElementById("currentSpouseOutput").innerHTML = people[i].currentSpouse;
-        } else {
-            console.log("No match for this height found");
+            //console.log(people[i]);
+        table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
         }
     }
 }
