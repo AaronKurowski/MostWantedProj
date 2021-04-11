@@ -72,3 +72,13 @@ function searchByHeight() {
     }
 }
 
+function searchByWeight() {
+    let table = document.querySelector('table');
+    let weightInput = document.forms['mainForm']['weight'].value;
+    for(let i = 0; i < people.length; i++) {
+        if(weightInput == people[i].weight) {
+            table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
+        }
+    }
+}
+

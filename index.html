@@ -18,9 +18,9 @@
       <label for="gender">Gender:</label>
       <input type="text" id="gender" name="gender" value="">
       <label for="height">Height:</label>
-      <input type="text" id="height" name="height" value="">
+      <input type="number" id="height" name="height" value="">
       <label for="weight">Weight:</label>
-      <input type="text" id="weight" name="weight" value="">
+      <input type="number" id="weight" name="weight" value="">
       <label for="eyeColor">Eye Color:</label>
       <input type="text" id="eyeColor" name="eyeColor" value="">
       <label for="occupation">Occupation:</label>
@@ -30,9 +30,8 @@
       <label for="currentSpouse">Current Spouse:</label>
       <input type="text" id="currentSpouse" name="currentSpouse">
       <br>
-      <input type="button" onclick="searchByHeight()" value="Submit"> <!--searchByName(), searchByGender(),--> 
+      <input type="button" onclick="searchByHeight(); searchByName()" value="Submit"> <!--searchByGender(),--> 
     </form>
-
 <!--
     <form id="nameForm">
         <label for="fname">First name:</label><br>
