@@ -142,11 +142,6 @@ function searchByHeight(people) {
     return results;  
 }
 
-let peopleOfHeight = searchByHeight(people);
-let smaller = searchByWeight(peopleOfHeight) //multiple search
-//populateTable(peopleOfHeight)
-
-
 // alerts if all inputs fields are blank
 function inputValidation(){
     let id = document.getElementById("mainForm").id.value;
