@@ -2,11 +2,171 @@
 
 function populateTable(people){
     let table = document.querySelector('table');
-    for(let i =0; i<people.length;i++){
+    for(let i = 0; i < people.length; i++){
         table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
     }
 }
 populateTable(people);
+
+function searchById(people) {
+    let idInput = document.forms['mainForm']['id'].value;
+    let idResults = people.filter(function(person) {
+        if(person.id == idInput) {
+            return true;
+        }
+        return false;
+    })
+    return idResults;
+}
+
+function searchByFirst(people) {
+    let fNameInput = document.forms['mainForm']['fname'].value;
+    let fNameResults = people.filter(function(person) {
+        if(person.firstName == fNameInput) {
+            return true;
+        }
+        return false;
+    })
+    return fNameResults;
+}
+
+function searchByLast(people) {
+    let lNameInput = document.forms['mainForm']['lname'].value;
+    let lNameResults = people.filter(function(person) {
+        if(person.lastName == lNameInput) {
+            return true;
+        }
+        return false;
+    })
+    return lNameResults;
+}
+
+function searchByGender(people) {
+    let genderInput = document.forms['mainForm']['gender'].value;
+    let genderResults = people.filter(function(person) {
+        if(person.gender == genderInput) {
+            return true;
+        }
+        return false;
+    })
+    return genderResults;
+}
+
+function searchByDob(people) {
+    let dobInput = document.forms['mainForm']['dob'].value;
+    let dobResults = people.filter(function(person) {
+        if(person.dob == dobInput) {
+            return true;
+        }
+        return false;
+    })
+    return dobResults;
+}
+
+function searchByHeight(people) {
+    let heightInput = document.forms['mainForm']['height'].value;
+    let heightResults = people.filter(function(person) {
+        if(person.height == heightInput) {
+            return true;
+        }
+        return false;
+    })
+    return heightResults;
+}
+let peopleOfHeight = searchByHeight(people);
+let smaller = searchByWeight(peopleOfHeight) //multiple search
+//populateTable(peopleOfHeight)
+
+function searchByWeight(people) {
+    let weightInput = document.forms['mainForm']['weight'].value;
+    let weightResults = people.filter(function(person) {
+        if(person.weight == weightInput) {
+            return true;
+        }
+        return false;
+    })
+    return weightResults;
+}
+
+function searchByEyeColor(people) {
+    let eyeColor = document.forms['mainForm']['eyeColor'].value;
+    let eColorResults = people.filter(function(person) {
+        if(person.eyeColor == eyeColor) {
+            return true;
+        }
+        return false;
+    })
+    return eColorResults;
+}
+
+function searchByOccupation(people) {
+    let occupation = document.forms['mainForm']['occupation'].value;
+    let occResults = people.filter(function(person) {
+        if(person.occupation == occupation) {
+            return true;
+        }
+        return false;
+    })
+    return occResults;
+}
+
+function searchByParents(people) {
+    let parents = document.forms['mainForm']['parents'].value;
+    let parentsResults = people.filter(function(person) {
+        if(person.parents == parents) {
+            return true;
+        }
+        return false;
+    })
+    return parentsResults;
+}
+
+function currentSpouse(people) {
+    let spouse = document.forms['mainForm']['currentSpouse'].value;
+    let spouseResults = people.filter(function(person) {
+        if(person.currentSpouse == spouse) {
+            return true;
+        }
+        return false;
+    })
+    return spouseResults;
+}
+
+function searchByHeight(people) {
+    let heightInput = document.forms['mainForm']['height'].value;
+    let results = people.filter(function(person){
+        if(person.height == heightInput){
+            return true;
+        }
+    })
+    return results;  
+}
+
+let peopleOfHeight = searchByHeight(people);
+let smaller = searchByWeight(peopleOfHeight) //multiple search
+//populateTable(peopleOfHeight)
+
+
+// alerts if all inputs fields are blank
+function inputValidation(){
+    let id = document.getElementById("mainForm").id.value;
+    let fname = document.getElementById("mainForm").fname.value; 
+    let lname = document.getElementById("mainForm").lname.value;
+    let gender = document.getElementById("mainForm").gender.value;
+    let dob = document.getElementById("mainForm").dob.value;
+    let height = document.getElementById("mainForm").height.value;
+    let weight = document.getElementById("mainForm").weight.value;
+    let eyeColor = document.getElementById("mainForm").eyeColor.value;
+    let occupation = document.getElementById("mainForm").occupation.value;
+    let parents = document.getElementById("mainForm").parents.value;
+    let currentSpouse = document.getElementById("mainForm").currentSpouse.value;
+    
+    if(!id && !fname && !lname && !gender && !dob && !height && !weight && !eyeColor && !occupation && !parents && !currentSpouse){
+        alert("Enter at least one search parameter!")
+        return false;
+    }
+}
+
 // function searchByName(){
 //     // Grabbing the values from our nameForm form and inputs.
 //     let firstNameInput = document.forms['mainForm']['fname'].value;
@@ -35,99 +195,3 @@ populateTable(people);
 // }
 
 // not connected to right form yet
-function searchByGender(){
-    let genderInput = document.forms['genderForm']['gender'].value;
-
-    let filteredGenders = people.filter(function (person) {
-        if(person.gender === genderInput){
-            return true;
-        }
-        return false;
-    });
-
-    if(filteredGenders.length > 0){
-        console.log(filteredGenders);
-        // document.getElementById("genderOutput").innerHTML = `${genderInput}`;
-    }else{
-        console.log("No one with that gender.");
-    }
-}
-
-function searchByBirth() {
-    let birthdayInput = document.forms['mainForm']['dob'].value;
-
-    let filteredBirthdays = people.filter(function (person) {
-        if(person.dob === birthdayInput){
-            return true;
-        }
-        return false;
-    });
-    if(filteredBirthdays.length > 0){
-        document.getElementById("table").innerHTML = `<tr><td>${birthdayInput}</td><tr>`
-    }else{
-        console.log("No one with that date of birth.");
-    }
-}
-
-function searchByName() {
-    let table = document.querySelector('table');
-    let fNameInput = document.forms['mainForm']['fname'].value;
-    let lNameInput = document.forms['mainForm']['lname'].value;
-
-    for(let i = 0; i < people.length; i++){
-        if(fNameInput === people[i].firstName && lNameInput === people[i].lastName){
-            table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
-        }
-        else if(fNameInput === people[i].firstName && !lNameInput){
-            table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
-        }
-        else if(!fNameInput && lNameInput === people[i].lastName){
-            table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
-        }
-    }
-}
-
-function searchByHeight(people) {
-    let heightInput = document.forms['mainForm']['height'].value;
-    let results = people.filter(function(person){
-        if(person.height == heightInput){
-            return true;
-        }
-    })
-    return results;  
-}
-
-let peopleOfHeight = searchByHeight(people);
-let smaller = searchByWeight(peopleOfHeight)
-populateTable(peopleOfHeight)
-
-function searchByWeight() {
-    let table = document.querySelector('table');
-    let weightInput = document.forms['mainForm']['weight'].value;
-    for(let i = 0; i < people.length; i++) {
-        if(weightInput == people[i].weight) {
-            table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
-        }
-    }
-}
-
-// alerts if all inputs fields are blank
-function inputValidation(){
-    let id = document.getElementById("mainForm").id.value;
-    let fname = document.getElementById("mainForm").fname.value; 
-    let lname = document.getElementById("mainForm").lname.value;
-    let gender = document.getElementById("mainForm").gender.value;
-    let dob = document.getElementById("mainForm").dob.value;
-    let height = document.getElementById("mainForm").height.value;
-    let weight = document.getElementById("mainForm").weight.value;
-    let eyeColor = document.getElementById("mainForm").eyeColor.value;
-    let occupation = document.getElementById("mainForm").occupation.value;
-    let parents = document.getElementById("mainForm").parents.value;
-    let currentSpouse = document.getElementById("mainForm").currentSpouse.value;
-    
-    if(!id && !fname && !lname && !gender && !dob && !height && !weight && !eyeColor && !occupation && !parents && !currentSpouse){
-        alert("Enter at least one search parameter!")
-        return false;
-    }
-}
-
