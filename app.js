@@ -1,5 +1,12 @@
 'use strict';
 
+function populateTable(people){
+    let table = document.querySelector('table');
+    for(let i =0; i<people.length;i++){
+        table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
+    }
+}
+populateTable(people);
 // function searchByName(){
 //     // Grabbing the values from our nameForm form and inputs.
 //     let firstNameInput = document.forms['mainForm']['fname'].value;
@@ -80,16 +87,19 @@ function searchByName() {
     }
 }
 
-function searchByHeight() {
-    let table = document.querySelector('table');
+function searchByHeight(people) {
     let heightInput = document.forms['mainForm']['height'].value;
-    for(let i = 0; i < people.length; i++) {
-        if(heightInput == people[i].height) {
-            //console.log(people[i]);
-        table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
+    let results = people.filter(function(person){
+        if(person.height == heightInput){
+            return true;
         }
-    }
+    })
+    return results;  
 }
+
+let peopleOfHeight = searchByHeight(people);
+let smaller = searchByWeight(peopleOfHeight)
+populateTable(peopleOfHeight)
 
 function searchByWeight() {
     let table = document.querySelector('table');
