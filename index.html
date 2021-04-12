@@ -16,7 +16,7 @@
       <label for="lname">Last name:</label>
       <input type="text" id="lname" name="lname" value="">
       <label for="gender">Gender:</label>
-      <input type="number" id="gender" name="gender" placeholder="male/female">
+      <input type="text" id="gender" name="gender" placeholder="male/female">
       <label for="dob">Date of Birth:</label>
       <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY">
       <label for="height">Height:</label>
@@ -32,35 +32,9 @@
       <label for="currentSpouse">Current Spouse:</label>
       <input type="text" id="currentSpouse" name="currentSpouse">
       <br>
-      <input type="button" onclick="searchByHeight(); searchByName(); inputValidation(); searchByBirth();" value="Submit"> <!-- searchByGender(),--> 
-    </form>
-<!--
-    <form id="nameForm">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="Joy"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Madden"><br><br>
-        <input type="button" onclick="searchByName()" value="Submit">
+      <input type="button" onclick="inputValidation();" value="Submit">
     </form>
 
-    <form id="genderForm">
-      <label for="gender">Gender:</label><br>
-      <input type="text" id="gender" name="gender" value="male/female"><br><br>
-      <input type="button" onclick="searchByGender()" value="Submit">
-    </form>
-    <br>
-    <form id="heightForm">
-      <label for="height">Height</label>
-      <input type="number" id="height" name="height">
-      --Use type="button" instead of "submit" to permanently display data -->
-    <!-- <br> -->
-    <!-- <form id="heightForm">
-      <label for="height">Height</label>
-      <input type="number" min="50" id="height" name="height">
-           Use type="button" instead of "submit" to permanently display data  -->
-      <!-- <input type="button" value="search" onclick="searchByHeight()">
-    </form> -->
-    <!-- <br> -->
     <table style="width: 100%" id='table'>
         <tr>
           <th>Id</th>
@@ -76,21 +50,7 @@
           <th>Current Spouse</th>
         </tr>
     </table>
-    <!--
-    <form id="genderForm">
-      <label for="gender">Gender:</label><br>
-      <input type="text" id="gender" name="gender" value="male/female"><br><br>
-      <input type="button" onclick="searchByGender()" value="Submit">
-    </form>
-
-    <br><br>
-
-    <form id="birthdayForm">
-      <label for="Birthday">Birthday</label><br>
-      <input type="text" id="birthday" name="birthday" value="MM/DD/YYYY"><br><br>
-      <input type="button" onclick="searchByBirth()" value="Submit">
-    </form>
-    --->
+    
     <script src="data.js"></script>
     <script src="app.js"></script>
   </body>

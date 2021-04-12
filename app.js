@@ -5,8 +5,9 @@ function populateTable(people){
     for(let i = 0; i < people.length; i++){
         table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
     }
+    
 }
-populateTable(people);
+//populateTable(people);
 
 function searchById(people) {
     let idInput = document.forms['mainForm']['id'].value;
@@ -99,7 +100,7 @@ function searchByEyeColor(people) {
     return eColorResults;
 }
 
-function searchByOccupation(people) {
+function searchByOccupation(people, userInput) {
     let occupation = document.forms['mainForm']['occupation'].value;
     let occResults = people.filter(function(person) {
         if(person.occupation == occupation) {
@@ -121,7 +122,7 @@ function searchByParents(people) {
     return parentsResults;
 }
 
-function currentSpouse(people) {
+function searchBySpouse(people) {
     let spouse = document.forms['mainForm']['currentSpouse'].value;
     let spouseResults = people.filter(function(person) {
         if(person.currentSpouse == spouse) {
@@ -132,17 +133,7 @@ function currentSpouse(people) {
     return spouseResults;
 }
 
-function searchByHeight(people) {
-    let heightInput = document.forms['mainForm']['height'].value;
-    let results = people.filter(function(person){
-        if(person.height == heightInput){
-            return true;
-        }
-    })
-    return results;  
-}
-
-// alerts if all inputs fields are blank
+// alerts if all inputs fields are blank. if not, searches based on non-null user inputs
 function inputValidation(){
     let id = document.getElementById("mainForm").id.value;
     let fname = document.getElementById("mainForm").fname.value; 
@@ -155,10 +146,48 @@ function inputValidation(){
     let occupation = document.getElementById("mainForm").occupation.value;
     let parents = document.getElementById("mainForm").parents.value;
     let currentSpouse = document.getElementById("mainForm").currentSpouse.value;
+    let results = people;
     
     if(!id && !fname && !lname && !gender && !dob && !height && !weight && !eyeColor && !occupation && !parents && !currentSpouse){
         alert("Enter at least one search parameter!")
         return false;
+    }
+    else{
+        if(id != ""){
+            results = searchById(results);
+        }
+        if(fname != "") {
+            results = searchByFirst(results);           
+        }
+        if(lname != "") {
+            results = searchByLast(results);
+        }
+        if(gender != "") {
+            results = searchByGender(results);
+        }
+        if(dob != "") {
+            results = searchByDob(results);
+        }
+        if(height != ""){
+            results = searchByHeight(results);
+        }
+        if(weight != "") {
+            results = searchByWeight(results);
+        }
+        if(eyeColor != "") {
+            results = searchByEyeColor(results);
+        }
+        if(occupation != "") {
+            results = searchByOccupation(results);
+        }
+        if(parents != "") {
+            results = searchByParents(results);
+        }
+        if(currentSpouse != "") {
+            results = searchBySpouse(results);
+        }
+
+        populateTable(results);
     }
 }
 
@@ -189,4 +218,4 @@ function inputValidation(){
 //     }
 // }
 
-// not connected to right form yet
+
