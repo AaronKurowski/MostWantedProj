@@ -7,7 +7,7 @@ function populateTable(people){
     }
     
 }
-//populateTable(people);
+populateTable(people);
 
 function searchById(people) {
     let idInput = document.forms['mainForm']['id'].value;
@@ -74,9 +74,9 @@ function searchByHeight(people) {
     })
     return heightResults;
 }
-let peopleOfHeight = searchByHeight(people);
-let smaller = searchByWeight(peopleOfHeight) //multiple search
-//populateTable(peopleOfHeight)
+// let peopleOfHeight = searchByHeight(people);
+// let smaller = searchByWeight(peopleOfHeight);
+
 
 function searchByWeight(people) {
     let weightInput = document.forms['mainForm']['weight'].value;
@@ -100,7 +100,7 @@ function searchByEyeColor(people) {
     return eColorResults;
 }
 
-function searchByOccupation(people, userInput) {
+function searchByOccupation(people) {
     let occupation = document.forms['mainForm']['occupation'].value;
     let occResults = people.filter(function(person) {
         if(person.occupation == occupation) {
@@ -186,7 +186,7 @@ function inputValidation(){
         if(currentSpouse != "") {
             results = searchBySpouse(results);
         }
-
+        clearTable(people);
         populateTable(results);
     }
 }
@@ -218,4 +218,22 @@ function inputValidation(){
 //     }
 // }
 
+function clearTable(people) {
+    let table = document.querySelector('table');
+    
+    for(let i = 0; i < people.length; i++){
+        table.innerHTML -= `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
+    }
+}
+
+// function findDescendants(results) {
+//     // look for person's id and search people array to find matches in parent array
+//     let personId = results.id;
+//     console.log(personId);
+    
+//     if(personId == results.parents[0] || personId == results.parents[1]){
+//         console.log("Found a match!")
+//         //display person with parentId match
+//     }
+// }
 
