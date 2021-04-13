@@ -188,7 +188,7 @@ function inputValidation(){
         }
         clearTable(people);
         populateTable(results);
-        //findDescendants(results);
+        findDescendants(results);
     }
 }
 
@@ -219,20 +219,42 @@ function inputValidation(){
 //     }
 // }
 
-function clearTable(people) {
+function clearTable() {
     let table = document.querySelector('tbody');
     
     table.innerHTML = "";
 }
 
-// function findDescendants(results) {
-//     // look for person's id and search people array to find matches in parent array
-//     let personId = results.id;
-//     console.log(personId);
+function findDescendants(results) {
+    // look for person's id and search people array to find matches in parent array
+    let personId;
+    for(let i = 0; i < results.length; i++){
+        personId = results[i].id;
+    }
+    console.log(personId);
     
-//     if(personId == results.parents[0] || personId == results.parents[1]){
-//         console.log("Found a match!")
-//         //display person with parentId match
-//     }
-// }
+    for(let i = 0; i < people.length; i++){
+        if(personId == people[i].parents[0] || personId == people[i].parents[1]){
+            console.log(people[i]);
+        }
+        else{
+            console.log("No descendants!")
+        }
+    }
+}
 
+
+    // let descendantMatches = people.filter(function(person) {
+    //     for(let i = 0; i < people.length; i++){
+    //         if(people.parents[i] == personId)
+    //     }
+    // });
+
+
+
+// let spouseResults = people.filter(function(person) {
+//         if(person.currentSpouse == spouse) {
+//             return true;
+//         }
+//         return false;
+//     })
