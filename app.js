@@ -221,8 +221,9 @@ function inputValidation(){
 
 function clearTable() {
     let table = document.querySelector('tbody');
-    
+    let tableTwo = document.getElementById('descendantTable');
     table.innerHTML = "";
+    tableTwo.innerHTML = "";
 }
 
 function findDescendants(results) {
@@ -232,29 +233,24 @@ function findDescendants(results) {
         personId = results[i].id;
     }
     console.log(personId);
-    
-    for(let i = 0; i < people.length; i++){
-        if(personId == people[i].parents[0] || personId == people[i].parents[1]){
-            console.log(people[i]);
+
+    let descendantMatches = people.filter(function(person) {
+        if(personId == person.parents[0] || personId == person.parents[1]){
+            return true
         }
         else{
-            console.log("No descendants!")
+            return false;
         }
-    }
+        // console.log(descendantMatches);
+    });
+    console.log(descendantMatches);
+    populateDescendants(descendantMatches);
 }
 
+function populateDescendants(people){
+    let tableTwo = document.getElementById("descendantTable");
 
-    // let descendantMatches = people.filter(function(person) {
-    //     for(let i = 0; i < people.length; i++){
-    //         if(people.parents[i] == personId)
-    //     }
-    // });
-
-
-
-// let spouseResults = people.filter(function(person) {
-//         if(person.currentSpouse == spouse) {
-//             return true;
-//         }
-//         return false;
-//     })
+    for(let i = 0; i < people.length; i++){
+        tableTwo.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${people[i].currentSpouse}</td></tr>`
+    }
+}
