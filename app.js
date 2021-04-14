@@ -3,7 +3,7 @@
 function populateTable(people){
     let table = document.querySelector('tbody');
     for(let i = 0; i < people.length; i++){
-        table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${displayParentName(people[i].parents[0])}</td><td>${displaySpouseName(people[i].currentSpouse)}</td></tr>`
+        table.innerHTML += `<tr><td>${people[i].id}</td><td>${people[i].firstName}</td><td>${people[i].lastName}</td><td>${people[i].gender}</td><td>${people[i].dob}</td><td>${people[i].height}</td><td>${people[i].weight}</td><td>${people[i].eyeColor}</td><td>${people[i].occupation}</td><td>${people[i].parents}</td><td>${displaySpouseName(people[i].currentSpouse)}</td></tr>`
     }
     
 }
@@ -241,7 +241,7 @@ function findDescendants(results) {
         else{
             return false;
         }
-        // console.log(descendantMatches);
+        
     });
     //console.log(descendantMatches);
     populateDescendants(descendantMatches);
@@ -255,24 +255,40 @@ function populateDescendants(people){
     }
 }
 
-// function displayParentName(id){
+// bug with inner HTML display of madden parents
+
+// function displayParentName(idArray){
+//     // if no parents listed, return empty
+//     if(idArray.length == 0){
+//         return "";
+//     }
+
+//     // put together parent and spouse if applicable
 //     for(let i = 0; i < people.length; i++){
 
-//         // if no parents listed, return empty
-//         if(!id){
-//             return "";
-//         }
-//         if(id == people[i].id){
+//         if(idArray.length == 1 && idArray[0] == people[i].id){
 //             // store the name of the parent given the id
 //             let parentName = people[i].firstName + " " + people[i].lastName;
-
-//             // find people that have parents with that same id
-//             for(let j = 0; j < people.length; j++){
-//                 if(id == people[j].parents[0]){
-//                     return parentName;
-//                 }
-//             }
-//         }       
+//             return parentName;
+//         }
+//         else if(idArray.length == 2 && idArray[0] == people[i].id){
+//             let parentName = people[i].firstName + " " + people[i].lastName;
+//             let theSpouse = displaySpouseName(idArray[1]);
+//             return `${parentName}, ${theSpouse}`;
+//         }
+//         else if(idArray.length == 2 && idArray[1] == people[i].id){
+//             let parentName = people[i].firstName + " " + people[i].lastName;
+//             let theSpouse = displaySpouse(idArray[0]);
+//             return `${parentName}, ${theSpouse}`;
+//         }
+//         // else if(idArray.length == 2){
+//         //     if(idArray.includes(people[i].id)){
+//         //         let parentName = people[i].firstName + " " + people[i].lastName;
+//         //         removeArrayElement(idArray, people[i].id)
+//         //         let theSpouse = idArray.toString();
+//         //         theSpouse = displaySpouseName(theSpouse);
+//         //         return parentName, theSpouse;
+//         //     }    
 //     }
 // }
 
@@ -280,7 +296,6 @@ function displaySpouseName(id) {
     // search for person with id from argument
     for(let i = 0; i < people.length; i++){
 
-        // this might be able to go outside loop but returns an empty string with someone with no spouse
         if(!id){
             return "";
         }
@@ -292,7 +307,7 @@ function displaySpouseName(id) {
             // searches people array to find people with those parents
             for(let j = 0; j < people.length; j++){
                 if(id == people[j].currentSpouse){
-                    console.log(spouseName);
+                    //console.log(spouseName);
                     return spouseName;
                 }
             }
